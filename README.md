@@ -34,6 +34,13 @@ Este projeto deverá usar a seguinte stack de desenvolvimento:
 - Vue 2
 - Tailwind CSS
 
+## Observações
+
+- Utilizar PSR-2;
+- Nome de métodos e classes em inglês;
+- Nome de tabelas e colunas em inglês;
+- Sugestão de ambiente de desenvolvimento: Laravel Valet, Homestead ou Laradock;
+
 ## Como aplicar
 
 Faça um fork desse projeto para iniciar os estudos. PRs não serão aceitos.
