@@ -33,3 +33,7 @@ Este projeto deverá usar a seguinte stack de desenvolvimento:
 - Laravel 5.8
 - Vue 2
 - Tailwind CSS
+
+## Como aplicar
+
+Faça um fork desse projeto para iniciar os estudos. PRs não serão aceitos.
