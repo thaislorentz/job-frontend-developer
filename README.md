@@ -14,33 +14,35 @@ A Yampi nasceu para revolucionar os produtos digitais para e-commerce. Nosso des
 
 O seu desafio será criar uma vitrine básica de uma loja virtual, contendo:
 
-- Cabeçalho
+<br/>
+
+- Cabeçalho <br/><br/>
 Dentro do cabeçalho deverá conter um menu de navegação com as categorias da loja, um input para a busca dos produtos e um ícone que mostra o conteúdo do carrinho da loja.
 
 <br/>
 
-- Página inicial
+- Página inicial <br/><br/>
 Nessa página você deverá listar todos os produtos da loja. Você pode também colocar alguns banners para deixar sua loja ainda mais bonita.
 
 <br/>
 
-- Página da categoria
+- Página da categoria <br/><br/>
 Nessa página você deverá mostrar o nome da categoria selecionada sendo o título principal da página e listar os produtos apenas dessa categoria. Você também deverá criar um `select` para definir como será a ordenação desses produtos, sendo as ordenações por *nome*, *preço* e *avaliação do produto*.
 
 <br/>
 
-- Página do produto
+- Página do produto <br/><br/>
 Nessa página você deverá mostrar os detalhes do produto, sendo o nome do produto como o título principal da página, a imagem, a descrição, o preço, um input para selecionar a quantidade e um botar para adicionar o produto ao carrinho.
 
 <br/>
 
-- Carrinho (página ou dropdown)
-O carrinho da sua loja deverá conter as seguintes ações:
--- Atualizar a quantidade de um produto no carrinho;
--- Excluir um item do carrinho;
--- Mensagem de carrinho vazio;
--- Valor total, somando os preços de todos os itens no carrinho;
--- Botão para a finalização do pedido;
+- Carrinho (página ou dropdown) <br/><br/>
+O carrinho da sua loja deverá conter as seguintes ações: <br/>
+-- Atualizar a quantidade de um produto no carrinho; <br/>
+-- Excluir um item do carrinho; <br/>
+-- Mensagem de carrinho vazio; <br/>
+-- Valor total, somando os preços de todos os itens no carrinho; <br/>
+-- Botão para a finalização do pedido; <br/>
 
 
 ### Instruções
