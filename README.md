@@ -32,7 +32,7 @@ Nessa página você deverá mostrar o nome da categoria selecionada sendo o tít
 <br/>
 
 - Página do produto <br/><br/>
-Nessa página você deverá mostrar os detalhes do produto, sendo o nome do produto como o título principal da página, a imagem, a descrição, o preço, um input para selecionar a quantidade e um botar para adicionar o produto ao carrinho.
+Nessa página você deverá mostrar os detalhes do produto, sendo o nome do produto como o título principal da página, a imagem, a descrição, o preço, um input para selecionar a quantidade e um botão para adicionar o produto ao carrinho.
 
 <br/>
 
