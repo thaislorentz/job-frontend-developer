@@ -29,8 +29,23 @@ export default {
     return {
       category: ["electronic", "jewelery", "mens clothing", "Womens Clothing"],
       showCategories: true,
-      windowWidth: window.innerWidth
+      windowWidth: 0
     };
+  },
+  watch: {
+    windowWidth() {
+      if (this.windowWidth >= 850) {
+        this.showCategories = true;
+      } else {
+        this.showCategories = false;
+      }
+    }
+  },
+  created() {
+    window.addEventListener(
+      "resize",
+      e => (this.windowWidth = e.target.innerWidth)
+    );
   }
 };
 </script>
@@ -51,6 +66,7 @@ export default {
     list-style: none;
     color: white;
     text-transform: capitalize;
+    animation: slidedown 0.3s ease-in-out;
 
     &-item {
       padding: 10px 50px;
@@ -69,6 +85,7 @@ export default {
   .nav {
     &-elements {
       flex-direction: column;
+      animation: heig 0.3s ease-in-out;
     }
     &-bars {
       cursor: pointer;
@@ -82,6 +99,24 @@ export default {
         margin-left: 10px;
       }
     }
+  }
+}
+
+@keyframes slidedown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes heig {
+  0% {
+    height: 136px;
+  }
+  100% {
+    height: 176px;
   }
 }
 </style>

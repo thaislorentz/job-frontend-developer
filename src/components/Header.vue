@@ -20,12 +20,11 @@
       />
     </div>
     <div class="header-input">
-    <InputText
-      
-      type="search"
-      v-model="search"
-      placeholder="O que você está procurando?"
-    />
+      <InputText
+        type="search"
+        v-model="search"
+        placeholder="O que você está procurando?"
+      />
     </div>
     <Nav />
   </div>
@@ -55,9 +54,6 @@ export default {
   background: #dedaf1;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 0;
-
   &-input {
     display: none;
   }
