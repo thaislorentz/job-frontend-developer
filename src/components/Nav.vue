@@ -9,11 +9,10 @@
         class="nav-elements-item"
         v-for="item in category"
         :key="item"
-        @click="$router.push({
-          path: '/category',
-          name: 'Category',
-          query: {name: item }
-          }).catch(()=>{})"  >
+        @click="
+          () => $router.push(`/category/${item}`).catch(() => {})
+        "
+      >
         {{ item }}
       </li>
     </ul>
@@ -22,7 +21,7 @@
 
 <script>
 import InputText from "../components/inputs/InputText.vue";
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   name: "Header",
@@ -36,7 +35,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({category: 'getCategories'}),
+    ...mapGetters({ category: "getCategories" })
   },
   watch: {
     windowWidth() {
@@ -47,8 +46,7 @@ export default {
       }
     }
   },
-  methods: {
-  },
+  methods: {},
   async created() {
     window.addEventListener(
       "resize",

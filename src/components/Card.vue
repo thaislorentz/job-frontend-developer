@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="() => $router.push(`/product/${product.id}`).catch(()=>{})">
     <div class="card-category">{{ product.category }}</div>
     <div class="card-container">
       <img class="card-image" :src="product.image" :alt="product.title" />

@@ -51,9 +51,9 @@ export default {
     };
   },
   watch: {
-    "$route.query.name"() {
+    "$route.path"() {
       this.isLoad = true;
-      this.getConfigByURL();
+      this.getCategoryByURL();
       this.getProductsByCategory({
         category: this.category,
         callback: () => (this.isLoad = false)
@@ -100,13 +100,13 @@ export default {
         });
       }
     },
-    getConfigByURL() {
-      var configId = this.$route.query.name;
-      this.category = configId;
+    getCategoryByURL() {
+      var categoryname = this.$route.path.split("/");
+      this.category = categoryname[categoryname.length - 1]
     }
   },
   mounted() {
-    this.getConfigByURL();
+    this.getCategoryByURL();
     this.getProductsByCategory({
       category: this.category,
       callback: () => (this.isLoad = false)

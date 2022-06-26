@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Homepage from "@/pages";
 import Category from "@/pages/category.vue";
+import Product from "@/pages/product.vue";
 
 Vue.use(Router);
 
@@ -13,10 +14,14 @@ export default new Router({
       component: Homepage
     },
     {
-      path: "/category",
+      path: "/category/:name",
       name: "Category",
       component: Category,
-      props: route => ({ query: route.query.name })
+    },
+    {
+      path: "/product/:id",
+      name: "Product",
+      component: Product,
     }
   ]
 });

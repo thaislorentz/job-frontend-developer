@@ -11,11 +11,7 @@
           class="category-items"
           v-for="item in categoriesTopics"
           :key="item.category"
-          @click="() => $router.push({
-          path: '/category',
-          name: 'Category',
-          query: {name: item.category }
-          }).catch(()=>{})"
+          @click="() => $router.push(`/category/${item.category}`).catch(()=>{})"
         >
           <img
             class="category-items-image"
