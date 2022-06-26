@@ -13,7 +13,7 @@ export default new Router({
       component: Homepage
     },
     {
-      path: "/",
+      path: "/category",
       name: "Category",
       component: Category,
       props: route => ({ query: route.query.name })

@@ -10,8 +10,9 @@
         v-for="item in category"
         :key="item"
         @click="$router.push({
+          path: '/category',
           name: 'Category',
-          query: {category: item }
+          query: {name: item }
           }).catch(()=>{})"  >
         {{ item }}
       </li>

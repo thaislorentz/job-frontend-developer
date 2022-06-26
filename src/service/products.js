@@ -3,7 +3,7 @@ const service = "https://fakestoreapi.com/products";
 
 async function getCategories() {
   try {
-    const r = await axios.get(`${service}/categories`, {timeout: 10000});
+    const r = await axios.get(`${service}/categories`);
     return r.data;
   } catch (e) {
     return Promise.reject(e);
@@ -12,11 +12,20 @@ async function getCategories() {
 
 async function getProducts() {
   try {
-    const r = await axios.get(`${service}`, {timeout: 10000});
+    const r = await axios.get(`${service}`);
     return r.data;
   } catch (e) {
     return Promise.reject(e);
   }
 }
 
-export default { getCategories, getProducts };
+async function getProductsCategory(category) {
+  try {
+    const r = await axios.get(`${service}/category/${category}`);
+    return r.data;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+}
+
+export default { getCategories, getProducts, getProductsCategory };

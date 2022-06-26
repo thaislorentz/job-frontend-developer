@@ -12,8 +12,9 @@
           v-for="item in categoriesTopics"
           :key="item.category"
           @click="() => $router.push({
+          path: '/category',
           name: 'Category',
-          query: {category: item.category }
+          query: {name: item.category }
           }).catch(()=>{})"
         >
           <img
@@ -86,16 +87,6 @@ export default {
 
 <style lang="scss">
 @import "@/assets/_colors.scss";
-
-.page {
-  width: 100%;
-  min-height: 100vh;
-
-  &-categories {
-    margin: 20px;
-  }
-}
-
 .category {
   display: flex;
   flex: wrap;
