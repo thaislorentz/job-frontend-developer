@@ -118,8 +118,7 @@ export default {
   .card {
     min-width: 350px;
     flex-direction: row;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 10px;
 
     &-image {
       width: 130px;

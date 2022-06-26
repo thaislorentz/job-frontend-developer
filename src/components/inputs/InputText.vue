@@ -17,7 +17,6 @@
 export default {
   name: "Footer",
   props: {
-    type: String,
     placeholder: String,
     value: String
   }

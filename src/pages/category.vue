@@ -2,12 +2,21 @@
   <div class="page">
     <Header />
     <Title :title="category" />
-    <div class="category-grid" v-if="isLoad">Loading</div>
-    <div class="category-grid" v-else>
+    <div class="categorypage-container" v-if="isLoad">Loading</div>
+    <div class="categorypage-container" v-else>
+      <div class="categorypage-container-select">
+        <Select
+          :options="orderBy"
+          v-model="search"
+          placeholder="Ordenar por:"
+        />
+      </div>
+      <div class="categorypage-grid">
         <div v-for="(product, index) in products" :key="index">
           <Card :product="product" />
         </div>
       </div>
+    </div>
     <Footer />
   </div>
 </template>
@@ -17,6 +26,7 @@ import Header from "../components/Header.vue";
 import Title from "../components/Title.vue";
 import Card from "../components/Card.vue";
 import Footer from "../components/Footer.vue";
+import Select from "../components/inputs/Select.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -25,30 +35,71 @@ export default {
     Header,
     Title,
     Card,
-    Footer
+    Footer,
+    Select
   },
   data() {
     return {
       isLoad: true,
-      category: ""
+      category: "",
+      search: "",
+      orderBy: [
+        { display: "Nome", value: "title" },
+        { display: "Preço", value: "price" },
+        { display: "Avaliação", value: "rating" }
+      ]
     };
   },
   watch: {
     "$route.query.name"() {
-      this.isLoad = true
+      this.isLoad = true;
       this.getConfigByURL();
-      this.getProductsByCategory({category: this.category, callback: ()=> this.isLoad = false})
+      this.getProductsByCategory({
+        category: this.category,
+        callback: () => (this.isLoad = false)
+      });
+    },
+    search: function() {
+      this.order(this.search);
     }
   },
   computed: {
     ...mapGetters({
-      products: 'getProductsCategory'
-    }),
+      products: "getProductsCategory"
+    })
   },
   methods: {
     ...mapActions({
-      getProductsByCategory: 'getProductsByCategory'
+      getProductsByCategory: "getProductsByCategory"
     }),
+    order(type) {
+      console.log(type)
+      if (type === "title") {
+        this.products.sort(function(a, b) {
+          if (a.title > b.title) {
+            return 1;
+          }
+          if (a.title < b.title) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+      else if (type === "price") {
+        this.products.sort((a, b) => a.price - b.price)
+      }
+      else if (type === "rating") {
+        this.products.sort(function(a, b) {
+          if (a.rating.rate > b.rating.rate) {
+            return 1;
+          }
+          if (a.rating.rate < b.rating.rate) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+    },
     getConfigByURL() {
       var configId = this.$route.query.name;
       this.category = configId;
@@ -56,16 +107,28 @@ export default {
   },
   mounted() {
     this.getConfigByURL();
-    this.getProductsByCategory({category: this.category, callback: ()=> this.isLoad = false})
+    this.getProductsByCategory({
+      category: this.category,
+      callback: () => (this.isLoad = false)
+    });
   }
 };
 </script>
 
 <style lang="scss">
 @import "@/assets/_colors.scss";
-.category {
+.categorypage {
+  &-container {
+    flex: 1;
+    &-select {
+      margin: 0 10% 30px;
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+      width: 300px;
+    }
+  }
   &-grid {
-    flex:1;
     margin: 0 5%;
     display: flex;
     flex-wrap: wrap;

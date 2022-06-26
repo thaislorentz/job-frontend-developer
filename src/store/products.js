@@ -29,7 +29,6 @@ export default {
       async getProductsByCategory(context, {category, callback}) {
         const products = await service.getProductsCategory(category)
         context.commit("set_productsCategory", products);
-        console.log(context, category, callback)
         callback()
       }
     }

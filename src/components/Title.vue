@@ -34,10 +34,30 @@ export default {
     text-transform: capitalize;
   }
 }
+@media (max-width: 850px) {
+  .title {
+    &-title {
+      font-size: 20px
+    }
+    &-line {
+      width: 30%;
+    }
+  }
+}
 @media (max-width: 650px) {
   .title {
+    &-title {
+      font-size: 16px
+    }
     &-line {
       width: 25%;
+    }
+  }
+}
+@media (max-width: 450px) {
+  .title {
+    &-line {
+      width: 20%;
     }
   }
 }

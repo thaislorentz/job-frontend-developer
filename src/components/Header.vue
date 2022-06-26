@@ -8,7 +8,6 @@
       />
       <div class="header-search-input">
         <InputText
-          type="search"
           v-model="search"
           placeholder="O que você está procurando?"
         />

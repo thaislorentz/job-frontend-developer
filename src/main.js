@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faSearch,
   faShoppingCart,
-  faBars
+  faBars,
+  faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
@@ -16,7 +17,7 @@ import router from "./router";
 import store from './store'
 
 
-library.add(faSearch, faShoppingCart, faBars, faInstagram, faFacebook, faLinkedin, );
+library.add(faSearch, faShoppingCart, faBars, faInstagram, faFacebook, faLinkedin, faChevronDown);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
