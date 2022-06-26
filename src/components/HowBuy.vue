@@ -64,7 +64,7 @@ export default {
 
   &-title {
     color: #725bc2;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
   }
 

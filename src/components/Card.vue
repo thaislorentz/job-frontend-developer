@@ -92,6 +92,11 @@ export default {
   }
 }
 
+.card:hover{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
 @media screen and (max-width: 700px) {
   .card {
     min-width: 350px;

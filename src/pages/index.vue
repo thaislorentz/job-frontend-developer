@@ -1,16 +1,20 @@
 <template>
   <div class="page">
     <Header />
+    <section class="category-image">
+      <img class="category-image" src="../assets/image 7.png" />
+    </section>
     <section class="page-categories">
       <Title title="Categorias" />
       <div class="category">
         <div
           class="category-items"
           v-for="item in categoriesTopics"
-          :key="item"
+          :key="item.category"
+          @click="() => $router.push(`/${item.category}`)"
         >
           <img
-            class="category-image"
+            class="category-items-image"
             :src="item.image"
             @click="() => $router.push(`/`)"
           />
@@ -166,17 +170,28 @@ export default {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    cursor:pointer;
+    cursor: pointer;
+    padding: 10px;
 
-  }
-
-  &-image {
+    &-image {
     width: 130px;
     height: 130px;
+    background: $white;
     object-fit: contain;
     border: 1px solid $secondary;
     border-radius: 100px;
     margin-bottom: 20px;
+  }
+  }
+
+  &-items:hover {
+    background: $secondary;
+    border-radius: 5px;
+    transition: 0.2s;
+  }
+
+  &-image {
+    width: 100%;
   }
 
   &-title {
@@ -223,8 +238,8 @@ export default {
   .vitrine {
     margin: 30px;
     &-title {
-    font-size: 21px;
-  }
+      font-size: 21px;
+    }
   }
 }
 </style>

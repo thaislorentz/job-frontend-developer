@@ -31,6 +31,7 @@ export default {
     color: #725bc2;
     padding: 30px;
     font-weight: 500;
+    text-transform: capitalize;
   }
 }
 @media (max-width: 650px) {
