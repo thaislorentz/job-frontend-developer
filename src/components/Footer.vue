@@ -38,8 +38,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/_colors.scss";
+
 .footer {
-  background: #dedaf1;
+  background: $secondary;
   border-top: solid #725bc2 2px;
   display: flex;
   justify-content: space-between;

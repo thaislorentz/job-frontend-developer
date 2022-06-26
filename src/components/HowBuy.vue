@@ -52,11 +52,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/_colors.scss";
+
 .howbuy {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #dedaf1;
+  background-color: $secondary;
   padding: 30px;
   margin: 60px 0;
 
@@ -135,7 +137,7 @@ export default {
     background-color: transparent;
     padding: 0;
     &-title {
-      background-color: #dedaf1;
+      background-color: $secondary;
       width: 100%;
       font-size: 28px;
       text-align: center;

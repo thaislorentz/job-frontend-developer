@@ -49,9 +49,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/_colors.scss";
+
 .header {
   width: 100%;
-  background: #dedaf1;
+  background: $secondary;
   display: flex;
   flex-direction: column;
   &-input {

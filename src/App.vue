@@ -12,6 +12,8 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap");
+@import "@/assets/_colors.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,7 +23,7 @@ export default {
   -webkit-appearance: none;
 }
 body {
-  background: #fcfcfc;
+  background: $background;
 }
 input {
   cursor: pointer;

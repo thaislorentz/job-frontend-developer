@@ -25,12 +25,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/_colors.scss";
+
 .input {
   display: flex;
   align-items: center;
   width: 100%;
   height: 40px;
-  background: #ffffff;
+  background: $white;
   box-sizing: border-box;
   border-radius: 5px;
   padding-right: 3px;
@@ -40,7 +42,7 @@ export default {
     display: flex;
     align-items: center;
     background: #725bc2;
-    color: #ffffff;
+    color: $white;
     box-sizing: border-box;
     padding: 15px;
   }

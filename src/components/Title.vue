@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/_colors.scss";
+
 .title {
   display: flex;
   align-items: center;
@@ -23,7 +25,7 @@ export default {
   &-line {
     height: 1px;
     width: 35%;
-    background: #dedaf1;
+    background: $secondary;
   }
   &-title {
     color: #725bc2;

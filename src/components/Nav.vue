@@ -51,6 +51,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/_colors.scss";
+
 .nav {
   width: 100%;
   background: #725bc2;

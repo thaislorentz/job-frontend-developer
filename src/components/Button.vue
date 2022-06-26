@@ -12,11 +12,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/_colors.scss";
 button {
-    background: #725bc2;
+    background: $predominant;
     border-radius: 5px;
     padding: 5px 8px;
-    color: #ffffff;
+    color: $white;
     border: none;
     font-size: 16px;
 }

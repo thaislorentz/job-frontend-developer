@@ -29,9 +29,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/_colors.scss";
+
 .card {
-  background: #ffffff;
-  border: 1px solid #dedaf1;
+  background: $white;
+  border: 1px solid $secondary;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -42,7 +44,7 @@ export default {
 
   &-category {
       margin: 10px 0;
-      background: #dedaf1;
+      background: $secondary;
       padding: 5px 10px;
       border-radius: 0 60px 60px 0;
       font-size: 10px;

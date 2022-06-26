@@ -145,6 +145,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/_colors.scss";
+
 .page {
   width: 100%;
   min-height: 100vh;
@@ -172,7 +174,7 @@ export default {
     width: 130px;
     height: 130px;
     object-fit: contain;
-    border: 1px solid #dedaf1;
+    border: 1px solid $secondary;
     border-radius: 100px;
     margin-bottom: 20px;
   }
