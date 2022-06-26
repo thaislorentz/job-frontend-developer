@@ -21,6 +21,7 @@
 
 <script>
 import InputText from "../components/inputs/InputText.vue";
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Header",
@@ -29,10 +30,12 @@ export default {
   },
   data() {
     return {
-      category: ["electronic", "jewelery", "mens clothing", "Womens Clothing"],
       showCategories: true,
       windowWidth: 0
     };
+  },
+  computed: {
+    ...mapGetters({category: 'getCategories'}),
   },
   watch: {
     windowWidth() {
@@ -43,7 +46,9 @@ export default {
       }
     }
   },
-  created() {
+  methods: {
+  },
+  async created() {
     window.addEventListener(
       "resize",
       e => (this.windowWidth = e.target.innerWidth)

@@ -3,13 +3,29 @@
     <div class="card-category">{{ product.category }}</div>
     <div class="card-container">
       <img class="card-image" :src="product.image" :alt="product.title" />
-    </div>
-    <div class="card-details">
-      <div class="card-information">
-        <h3 class="card-information-title">{{ product.title }}</h3>
-        <p class="card-information-price">R${{ product.price }},00</p>
+      <div class="card-details">
+        <div class="card-information">
+          <h3
+            class="card-information-title"
+            :style="product.title.length < 25 && 'height:56px'"
+          >
+            {{
+              product.title.length > 25
+                ? `${product.title.slice(0, 25)}...`
+                : product.title
+            }}
+          </h3>
+          <p class="card-information-price">
+            {{
+              product.price.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL"
+              })
+            }}
+          </p>
+        </div>
+        <Button msg="Quero" />
       </div>
-      <Button msg="Quero" />
     </div>
   </div>
 </template>
@@ -24,7 +40,7 @@ export default {
   },
   components: {
     Button
-  },
+  }
 };
 </script>
 
@@ -40,22 +56,23 @@ export default {
   align-items: flex-start;
   width: 230px;
   margin: 10px;
-  cursor:pointer;
+  cursor: pointer;
 
   &-category {
-      margin: 10px 0;
-      background: $secondary;
-      padding: 5px 10px;
-      border-radius: 0 60px 60px 0;
-      font-size: 10px;
-      font-weight: bold;
-      min-width: 70px;
-      color:#725bc2;
-      text-transform: capitalize;
+    margin: 10px 0;
+    background: $secondary;
+    padding: 5px 10px;
+    border-radius: 0 60px 60px 0;
+    font-size: 10px;
+    font-weight: bold;
+    min-width: 70px;
+    color: #725bc2;
+    text-transform: capitalize;
   }
 
   &-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -78,12 +95,12 @@ export default {
     flex-direction: column;
     margin-bottom: 15px;
     &-title {
-      color: #777E8B;
+      color: #777e8b;
       font-weight: 200;
     }
     &-price {
       font-size: 20px;
-      color: #777E8B;
+      color: #777e8b;
       font-weight: bold;
     }
   }
@@ -92,22 +109,36 @@ export default {
   }
 }
 
-.card:hover{
+.card:hover {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .card {
     min-width: 350px;
     flex-direction: row;
     margin: 0;
     margin-bottom: 10px;
-    
+
+    &-image {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+    }
+
+    &-container {
+      flex-direction: row;
+    }
+
+    &-details {
+      width: 140px;
+    }
+
     &-information {
-      &-name {
+      &-title {
         width: 100%;
-        font-size: 16px;
+        font-size: 12px;
       }
       &-description {
         font-size: 12px;

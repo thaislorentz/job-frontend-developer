@@ -4,7 +4,7 @@
       <img
         class="header-search-image"
         src="../assets/brand-yampi.svg"
-        @click="() => $router.push(`/`)"
+        @click="() => $router.push(`/`).catch(()=>{})"
       />
       <div class="header-search-input">
         <InputText

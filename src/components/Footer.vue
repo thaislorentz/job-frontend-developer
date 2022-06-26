@@ -46,9 +46,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  
   &-social {
     padding: 10px;
     display: flex;

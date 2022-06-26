@@ -1,12 +1,33 @@
 <template>
   <div id="app">
-    <router-view />
+    <div v-if="isLoad">
+      loading
+    </div>
+    <router-view v-else/>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
-  name: "App"
+  name: "App",
+  data() {
+    return {
+      isLoad: true
+    };
+  },
+  methods: {
+    ...mapActions({
+      getAllProducts: "getAllProducts",
+      getAllCategories: "getAllCategories",
+    })
+  },
+  async mounted() {
+    await this.getAllCategories();
+    await this.getAllProducts();
+    this.isLoad = false
+  }
 };
 </script>
 

@@ -19,7 +19,7 @@
           <img
             class="category-items-image"
             :src="item.image"
-            @click="() => $router.push(`/`)"
+            @click="() => $router.push(`/`).catch(()=>{})"
           />
           <span class="category-title">{{ item.category }}</span>
         </div>
@@ -46,6 +46,7 @@ import Title from "../components/Title.vue";
 import HowBuy from "../components/HowBuy.vue";
 import Card from "../components/Card.vue";
 import Footer from "../components/Footer.vue";
+import { mapGetters } from 'vuex'
 
 export default {
   name: "App",
@@ -58,83 +59,14 @@ export default {
   },
   data() {
     return {
-      category: ["electronic", "jewelery", "mens clothing", "Womens Clothing"],
-      products: [
-        {
-          id: 1,
-          title: "Pulseira",
-          price: 200,
-          category: "jewelery",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://images.tcdn.com.br/img/img_prod/849569/pulseira_aco_inox_9531_2_20201214023102.jpg"
-        },
-        {
-          id: 2,
-          title: "Fone",
-          price: 500,
-          category: "electronic",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://i2go.fbitsstatic.net/img/p/fone-de-ouvido-bluetooth-sem-fio-tws-air-sound-go-2-i2go-com-estojo-de-carregamento-i2go-plus-90559/277049.jpg?w=378&h=378&v=no-change&qs=ignore"
-        },
-        {
-          id: 3,
-          title: "Jaqueta",
-          price: 200,
-          category: "mens clothing",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh3yTBUlznxL3Zn9mkQTIWG1AJjNM_DcgJ3oLhguSyrbCk6mKnhctEABs90MnwHS7kZzw&usqp=CAU"
-        },
-        {
-          id: 4,
-          title: "Pulseira",
-          price: 200,
-          category: "Womens Clothing",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://img.freepik.com/fotos-gratis/saia-feminina-em-um-fundo-branco_461160-4344.jpg"
-        },
-        {
-          id: 5,
-          title: "Pulseira",
-          price: 200,
-          category: "jewelery",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://images.tcdn.com.br/img/img_prod/849569/pulseira_aco_inox_9531_2_20201214023102.jpg"
-        },
-        {
-          id: 6,
-          title: "Fone",
-          price: 500,
-          category: "electronic",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://i2go.fbitsstatic.net/img/p/fone-de-ouvido-bluetooth-sem-fio-tws-air-sound-go-2-i2go-com-estojo-de-carregamento-i2go-plus-90559/277049.jpg?w=378&h=378&v=no-change&qs=ignore"
-        },
-        {
-          id: 7,
-          title: "Jaqueta",
-          price: 200,
-          category: "mens clothing",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh3yTBUlznxL3Zn9mkQTIWG1AJjNM_DcgJ3oLhguSyrbCk6mKnhctEABs90MnwHS7kZzw&usqp=CAU"
-        },
-        {
-          id: 8,
-          title: "Pulseira",
-          price: 200,
-          category: "Womens Clothing",
-          description: "asidiashduiashduiashd",
-          image:
-            "https://img.freepik.com/fotos-gratis/saia-feminina-em-um-fundo-branco_461160-4344.jpg"
-        }
-      ],
+      isLoad: true,
       categoriesTopics: []
     };
+  },
+  computed: {
+    ...mapGetters({category: 'getCategories',
+      products: 'getProducts'
+    }),
   },
   methods: {
     getFirstProduct() {
@@ -143,10 +75,11 @@ export default {
           this.categoriesTopics.push(product);
         }
       });
-    }
+    },
   },
-  created() {
+  async created() {
     this.getFirstProduct();
+    this.isLoad = false
   }
 };
 </script>

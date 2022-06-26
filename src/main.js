@@ -13,6 +13,8 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import router from "./router";
+import store from './store'
+
 
 library.add(faSearch, faShoppingCart, faBars, faInstagram, faFacebook, faLinkedin, );
 
@@ -21,5 +23,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");
