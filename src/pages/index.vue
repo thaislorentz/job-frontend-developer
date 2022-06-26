@@ -1,31 +1,53 @@
 <template>
   <div class="page">
     <Header />
-    <section class="page-image">
+    <section class="page-categories">
       <Title title="Categorias" />
       <div class="category">
-        <div class="category-items" v-for="item in categoriesTopics" :key="item">
-            <img
-              class="category-image"
-              :src="item.image"
-              @click="() => $router.push(`/`)"
-            />
+        <div
+          class="category-items"
+          v-for="item in categoriesTopics"
+          :key="item"
+        >
+          <img
+            class="category-image"
+            :src="item.image"
+            @click="() => $router.push(`/`)"
+          />
           <span class="category-title">{{ item.category }}</span>
         </div>
       </div>
     </section>
+    <HowBuy />
+    <section class="vitrine" id="Promoções">
+      <h2 class="vitrine-title">
+        RECOMENDADOS PARA VOCÊ
+      </h2>
+      <div class="vitrine-grid">
+        <div v-for="(product, index) in products" :key="index">
+          <Card :product="product" />
+        </div>
+      </div>
+    </section>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "../components/Header.vue";
 import Title from "../components/Title.vue";
+import HowBuy from "../components/HowBuy.vue";
+import Card from "../components/Card.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Title
+    Title,
+    HowBuy,
+    Card,
+    Footer
   },
   data() {
     return {
@@ -126,43 +148,81 @@ export default {
 .page {
   width: 100%;
   min-height: 100vh;
+
+  &-categories {
+    margin: 20px;
+  }
 }
 
 .category {
   display: flex;
-  flex:wrap;
+  flex: wrap;
   justify-content: space-around;
 
-  &-items{
+  &-items {
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
+    cursor:pointer;
+
   }
 
-    &-image {
+  &-image {
     width: 130px;
     height: 130px;
     object-fit: contain;
-    border: 1px solid #DEDAF1;
+    border: 1px solid #dedaf1;
     border-radius: 100px;
     margin-bottom: 20px;
   }
 
-  &-title{
+  &-title {
     text-transform: capitalize;
-    color:#725BC2;
+    color: #725bc2;
     font-weight: bold;
+  }
+}
+
+.vitrine {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px 120px;
+  background: url("../assets/background.png") no-repeat;
+  background-position: bottom left;
+  &-title {
+    z-index: 1;
+    font-size: 28px;
+    color: #725bc2;
+    margin-bottom: 20px;
+  }
+  &-grid {
+    margin: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &-button {
+    margin-right: 10%;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
 @media (max-width: 650px) {
   .category {
-  display: flex;
-  flex-direction: column;
-  &-items{
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    &-items {
+      margin-top: 20px;
+    }
   }
-}
+  .vitrine {
+    margin: 30px;
+    &-title {
+    font-size: 21px;
+  }
+  }
 }
 </style>
