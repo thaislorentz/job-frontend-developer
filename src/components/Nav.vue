@@ -9,8 +9,10 @@
         class="nav-elements-item"
         v-for="item in category"
         :key="item"
-        @click="() => $router.push(`/${item}`)"
-      >
+        @click="$router.push({
+          name: 'Category',
+          query: {category: item }
+          }).catch(()=>{})"  >
         {{ item }}
       </li>
     </ul>

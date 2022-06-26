@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <Header />
-        <Title :title="category" />
+    <Title :title="category" />
     <Footer />
   </div>
 </template>
@@ -22,16 +22,21 @@ export default {
   },
   data() {
     return {
-        category: ''
+      category: ""
     };
+  },
+  watch: {
+    "$route.query.category"() {
+      this.getConfigByURL();
+    }
   },
   methods: {
     getConfigByURL() {
-      var configId = this.$route.path.split("/");
-      this.category = configId[1]
-    },
+      var configId = this.$route.query.category;
+      this.category = configId;
+    }
   },
-  created() {
+  mounted() {
     this.getConfigByURL();
   }
 };

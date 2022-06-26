@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Homepage from "@/pages";
-import Category from "@/pages/_category.vue";
+import Category from "@/pages/category.vue";
 
 Vue.use(Router);
 
@@ -13,9 +13,10 @@ export default new Router({
       component: Homepage
     },
     {
-      path: "/:category",
+      path: "/",
       name: "Category",
-      component: Category
+      component: Category,
+      props: route => ({ query: route.query.name })
     }
   ]
 });
