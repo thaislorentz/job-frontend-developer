@@ -19,6 +19,15 @@ async function getProducts() {
   }
 }
 
+async function getProductById(id) {
+  try {
+    const r = await axios.get(`${service}/${id}`);
+    return r.data;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+}
+
 async function getProductsCategory(category) {
   try {
     const r = await axios.get(`${service}/category/${category}`);
@@ -28,4 +37,4 @@ async function getProductsCategory(category) {
   }
 }
 
-export default { getCategories, getProducts, getProductsCategory };
+export default { getCategories, getProducts, getProductById, getProductsCategory };
