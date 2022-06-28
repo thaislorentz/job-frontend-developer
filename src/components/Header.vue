@@ -4,19 +4,21 @@
       <img
         class="header-search-image"
         src="../assets/brand-yampi.svg"
-        @click="() => $router.push(`/`).catch(()=>{})"
+        @click="() => $router.push(`/`).catch(() => {})"
       />
       <div class="header-search-input">
-        <InputText
-          v-model="search"
-          placeholder="O que você está procurando?"
-        />
+        <InputText v-model="search" placeholder="O que você está procurando?" />
       </div>
-      <font-awesome-icon
-        icon="shopping-cart"
-        class="header-icon "
-        @click="() => $router.push(`/cart`)"
-      />
+      <button class="header-cart" @click="() => $router.push(`/cart`)">
+        <font-awesome-icon
+          icon="shopping-cart"
+          
+          class="header-cart-icone"
+        />
+        <div class="header-cart-quantity" v-if="cart.products.length > 0">
+          {{ cart.products.length }}
+        </div>
+      </button>
     </div>
     <div class="header-input">
       <InputText
@@ -32,18 +34,24 @@
 <script>
 import InputText from "../components/inputs/InputText.vue";
 import Nav from "../components/Nav.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Header",
   components: {
     InputText,
-    Nav
+    Nav,
+  },
+  computed: {
+    ...mapGetters({
+      cart: "getCart",
+    }),
   },
   data() {
     return {
-      search: ""
+      search: "",
     };
-  }
+  },
 };
 </script>
 
@@ -57,6 +65,36 @@ export default {
   flex-direction: column;
   &-input {
     display: none;
+  }
+
+  &-cart{
+    width: 100px;
+    background: none;
+    border: none;
+    position: relative;
+    &-icone {
+      color: $predominant;
+      font-size: 40px;
+    }
+    &-icone:hover  {
+      color: $white;
+      transition: 0.5s;
+    }
+    &-quantity {
+      position: absolute;
+      top:-10px;
+      right: 0;
+      width: 25px;
+      height: 25px;
+      background: $white;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $predominant;
+      font-weight: bold;
+      border: 1px solid $predominant;
+    }
   }
 
   &-search {

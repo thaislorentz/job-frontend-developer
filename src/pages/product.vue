@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <Header />
-    <div v-if="isLoad">Loading</div>
+    <div v-if="isLoad" class="product-container">Loading</div>
     <div class="product-container" v-else>
       <div class="product-detail">
         <img class="product-image" :src="product.image" :alt="product.title" />
@@ -13,7 +13,7 @@
           <span class="product-detail-information-price">{{
             product.price.toLocaleString("pt-br", {
               style: "currency",
-              currency: "BRL"
+              currency: "BRL",
             })
           }}</span>
           <QuantityProducts
@@ -22,7 +22,7 @@
             :value="quantity"
           />
           <div class="product-detail-information-button">
-            <Button msg="Adicionar no carrinho" />
+            <Button msg="Adicionar no carrinho" @click="addCart()" />
           </div>
         </div>
       </div>
@@ -54,9 +54,10 @@ import Footer from "../components/Footer.vue";
 import Button from "../components/Button.vue";
 import Title from "../components/Title.vue";
 import QuantityProducts from "../components/QuantityProducts.vue";
-import Card from "../components/Card.vue";
-import service from "../service/products";
-import { mapGetters } from "vuex";
+import Card from "../components/cards/Card.vue";
+import serviceP from "../service/products";
+import serviceC from "../service/cart";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -66,27 +67,33 @@ export default {
     Button,
     Title,
     Card,
-    QuantityProducts
+    QuantityProducts,
   },
   data() {
     return {
       isLoad: true,
       product: {},
-      quantity: 1
+      quantity: 1,
     };
   },
   computed: {
     ...mapGetters({
       products: "getProductsCategory",
-      getProducts: "getProducts"
-    })
+      getProducts: "getProducts",
+      cart: "getCart",
+    }),
   },
   watch: {
     "$route.path"() {
+      this.isLoad = true;
+      this.quantity = 1;
       this.getProductByURL();
-    }
+    },
   },
   methods: {
+    ...mapActions({
+      getCartProductsById: "getCartProductsById",
+    }),
     incrementEvent() {
       this.quantity += 1;
     },
@@ -94,18 +101,39 @@ export default {
       this.quantity === 1 ? this.quantity : (this.quantity -= 1);
     },
     async getById(id) {
-      this.product = await service.getProductById(id);
+      this.product = await serviceP.getProductById(id);
       this.isLoad = false;
     },
     getProductByURL() {
       var product = this.$route.path.split("/");
       this.getById(product[product.length - 1]);
-    }
+    },
+    async addCart() {
+      let d = new Date();
+      const product = this.cart.products.find(
+        (prod) => prod.productId === this.product.id
+      );
+      if (product) product.quantity += this.quantity;
+      else
+        this.cart.products.push({
+          productId: this.product.id,
+          quantity: this.quantity,
+        });
+
+      const payload = {
+        userId: this.cart.userId,
+        date: d.toISOString(),
+        products: this.cart.products,
+      };
+      await serviceC.changeCartById(2, payload);
+      this.$store.commit("set_cart", payload);
+      //await this.getCartProductsById(2)
+    },
   },
   mounted() {
     this.getProductByURL();
     console.log(this.getProducts, "produ");
-  }
+  },
 };
 </script>
 
@@ -204,9 +232,9 @@ export default {
         &-title {
           font-size: 20px;
         }
-      &-button {
-        width: 100%;
-      }
+        &-button {
+          width: 100%;
+        }
       }
     }
   }

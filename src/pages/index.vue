@@ -41,7 +41,7 @@
 import Header from "../components/Header.vue";
 import Title from "../components/Title.vue";
 import HowBuy from "../components/HowBuy.vue";
-import Card from "../components/Card.vue";
+import Card from "../components/cards/Card.vue";
 import Footer from "../components/Footer.vue";
 import { mapGetters } from 'vuex'
 
