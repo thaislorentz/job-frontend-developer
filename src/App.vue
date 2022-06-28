@@ -21,11 +21,13 @@ export default {
     ...mapActions({
       getAllProducts: "getAllProducts",
       getAllCategories: "getAllCategories",
+      getCartProductsById: "getCartProductsById"
     })
   },
   async mounted() {
     await this.getAllCategories();
     await this.getAllProducts();
+    await this.getCartProductsById(2)
     this.isLoad = false
   }
 };
