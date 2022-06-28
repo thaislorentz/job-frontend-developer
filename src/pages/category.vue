@@ -24,7 +24,7 @@
 <script>
 import Header from "../components/Header.vue";
 import Title from "../components/Title.vue";
-import Card from "../components/Card.vue";
+import Card from "../components/cards/Card.vue";
 import Footer from "../components/Footer.vue";
 import Select from "../components/inputs/Select.vue";
 import { mapActions, mapGetters } from "vuex";

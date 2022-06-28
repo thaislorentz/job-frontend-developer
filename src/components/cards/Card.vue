@@ -24,14 +24,15 @@
             }}
           </p>
         </div>
-        <Button msg="Quero" />
+        <Button msg="Quero"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Button from "./Button.vue";
+import Button from "../Button.vue";
+
 
 export default {
   name: "Card",
@@ -40,7 +41,7 @@ export default {
   },
   components: {
     Button
-  }
+  },
 };
 </script>
 
