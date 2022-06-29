@@ -1,7 +1,9 @@
 <template>
   <div class="page">
     <Header />
-    <div v-if="isLoad" class="product-container">Loading</div>
+    <div v-if="isLoad" class="product-loading">
+      <Loading />
+    </div>
     <div class="product-container" v-else>
       <div class="product-detail">
         <img class="product-image" :src="product.image" :alt="product.title" />
@@ -57,6 +59,7 @@ import QuantityProducts from "../components/QuantityProducts.vue";
 import Card from "../components/cards/Card.vue";
 import serviceP from "../service/products";
 import serviceC from "../service/cart";
+import Loading from '../components/Loading.vue'
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -67,6 +70,7 @@ export default {
     Button,
     Title,
     Card,
+    Loading,
     QuantityProducts,
   },
   data() {
@@ -139,9 +143,17 @@ export default {
 
 <style lang="scss">
 @import "@/assets/_colors.scss";
+
 .product {
   &-container {
     flex: 1;
+  }
+
+  &-loading {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &-image {

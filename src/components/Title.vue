@@ -30,7 +30,7 @@ export default {
   &-title {
     color: #725bc2;
     padding: 30px;
-    font-weight: 500;
+    font-weight: bold;
     text-transform: capitalize;
   }
 }

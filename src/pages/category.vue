@@ -2,7 +2,9 @@
   <div class="page">
     <Header />
     <Title :title="category" />
-    <div class="categorypage-container" v-if="isLoad">Loading</div>
+    <div class="categorypage-loading" v-if="isLoad">
+      <Loading/>
+    </div>
     <div class="categorypage-container" v-else>
       <div class="categorypage-container-select">
         <Select
@@ -26,6 +28,7 @@ import Header from "../components/Header.vue";
 import Title from "../components/Title.vue";
 import Card from "../components/cards/Card.vue";
 import Footer from "../components/Footer.vue";
+import Loading from "../components/Loading.vue";
 import Select from "../components/inputs/Select.vue";
 import { mapActions, mapGetters } from "vuex";
 
@@ -36,6 +39,7 @@ export default {
     Title,
     Card,
     Footer,
+    Loading,
     Select
   },
   data() {
@@ -118,6 +122,12 @@ export default {
 <style lang="scss">
 @import "@/assets/_colors.scss";
 .categorypage {
+  &-loading {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &-container {
     flex: 1;
     &-select {

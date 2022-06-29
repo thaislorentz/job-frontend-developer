@@ -24,6 +24,7 @@ button {
     font-weight: bold;
 }
 
+
 @media screen and (max-width: 700px) {
     button {
         font-size: 12px;

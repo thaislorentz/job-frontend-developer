@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div v-if="isLoad">
-      loading
+    <div v-if="isLoad" class="loading">
+      <Loading />
     </div>
-    <router-view v-else/>
-  </div>
+    <router-view v-else/>  </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import Loading from './components/Loading.vue'
 
 export default {
   name: "App",
@@ -16,6 +16,9 @@ export default {
     return {
       isLoad: true
     };
+  },
+  components: {
+    Loading
   },
   methods: {
     ...mapActions({
@@ -59,5 +62,14 @@ button {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.loading {
+  background: $secondary;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
