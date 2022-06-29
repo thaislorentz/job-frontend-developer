@@ -23,6 +23,8 @@
         @incrementEvent="incrementEvent"
         @decrementEvent="decrementEvent"
         :value="cart.quantity"
+        :price="cart.price"
+        :display="false"
       />
       <p class="cartcard-setQuantity-price">
 

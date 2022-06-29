@@ -13,7 +13,7 @@
             {{ product.description }}
           </p>
           <span class="product-detail-information-price">{{
-            product.price.toLocaleString("pt-br", {
+            (product.price * quantity).toLocaleString("pt-br", {
               style: "currency",
               currency: "BRL",
             })
@@ -22,6 +22,7 @@
             @incrementEvent="incrementEvent"
             @decrementEvent="decrementEvent"
             :value="quantity"
+            :price="product.price"
           />
           <div class="product-detail-information-button">
             <Button msg="Adicionar no carrinho" @click="addCart()" />
@@ -59,7 +60,7 @@ import QuantityProducts from "../components/QuantityProducts.vue";
 import Card from "../components/cards/Card.vue";
 import serviceP from "../service/products";
 import serviceC from "../service/cart";
-import Loading from '../components/Loading.vue'
+import Loading from "../components/Loading.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
