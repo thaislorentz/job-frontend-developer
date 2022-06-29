@@ -96,6 +96,7 @@ export default {
         console.log(product);
         if (product !== -1) {
           this.cart.products.splice(product, 1);
+          this.$toast.success("Produto retirado do carrinho!");
         }
       }
 

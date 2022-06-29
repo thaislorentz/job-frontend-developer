@@ -133,6 +133,7 @@ export default {
       await serviceC.changeCartById(2, payload);
       this.$store.commit("set_cart", payload);
       //await this.getCartProductsById(2)
+      this.$toast.success("Produto adicionado ao carrinho!");
     },
   },
   mounted() {
