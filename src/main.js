@@ -8,7 +8,8 @@ import {
   faSearch,
   faShoppingCart,
   faBars,
-  faChevronDown
+  faChevronDown,
+  faCheckCircle
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faInstagram,
@@ -22,7 +23,7 @@ import store from './store'
 Vue.use(VueToast, {position: 'top'});
 
 
-library.add(faSearch, faShoppingCart, faBars, faInstagram, faFacebook, faLinkedin, faChevronDown);
+library.add(faSearch, faShoppingCart, faBars, faInstagram, faFacebook, faLinkedin, faChevronDown, faCheckCircle);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

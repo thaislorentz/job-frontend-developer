@@ -22,7 +22,9 @@
               })
             }}</span>
           </div>
-          <Button msg="Finalizar compra" />
+          <div class="cart-button">
+          <Button msg="Finalizar compra" :finish="true" />
+          </div>
         </div>
       </div>
     </div>
@@ -174,6 +176,12 @@ export default {
         font-size: 28px;
       }
     }
+  }
+  &-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media (max-width: 1100px) {

@@ -69,9 +69,13 @@ export default {
 
   &-cart{
     width: 100px;
+    border-radius: 5px;
     background: none;
     border: none;
     position: relative;
+    padding: 18px 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
     &-icone {
       color: $predominant;
       font-size: 40px;
@@ -94,6 +98,15 @@ export default {
       color: $predominant;
       font-weight: bold;
       border: 1px solid $predominant;
+    }
+  }
+
+  &-cart:hover {
+    background: #a495d8;
+    transition: 0.5s;
+    color: $white;
+    &-icone {
+      color: $white;
     }
   }
 
