@@ -118,7 +118,7 @@ export default {
     z-index: 10;
     position: absolute;
     width: 100%;
-    height: 70vh;
+    max-height: 70vh;
     overflow: auto;
     background: $secondary;
     border:1px solid $predominant;
