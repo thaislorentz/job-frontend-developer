@@ -105,7 +105,7 @@ export default {
     },
     getCategoryByURL() {
       var categoryname = this.$route.path.split("/");
-      this.category = categoryname[categoryname.length - 1]
+      this.category = decodeURI(categoryname[categoryname.length - 1])
     }
   },
   mounted() {

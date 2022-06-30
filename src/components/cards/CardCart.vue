@@ -169,4 +169,16 @@ export default {
   }
   }
 }
+@media screen and (max-width: 400px) {
+  .cartcard {
+   &-information {
+    &-title {
+      font-size: 14px;
+    }
+    &-description {
+      font-size: 11px;
+    }
+  }
+  }
+}
 </style>

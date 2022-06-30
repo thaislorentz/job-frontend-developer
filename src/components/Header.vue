@@ -146,7 +146,6 @@ export default {
   .header {
     &-input {
       display: flex;
-      background: red;
       margin: 0 30px 30px 30px;
     }
     &-search {

@@ -192,7 +192,7 @@ export default {
 
   &-relacionados {
     &-cards {
-      margin: 0 5%;
+      margin: 0 5% 50px 5%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
