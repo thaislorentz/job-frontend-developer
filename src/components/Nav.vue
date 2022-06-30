@@ -48,7 +48,6 @@ export default {
       this.$router.push(`/category/${item}`).catch(() => {})
     },
     resizeNav() {
-      console.log(this.windowWidth)
       if (this.windowWidth >= 850) {
         this.showCategories = true;
       } else {
