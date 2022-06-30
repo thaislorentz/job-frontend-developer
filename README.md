@@ -12,7 +12,7 @@ npm run dev
 ## Descrição do Projeto
 <h1 align="center">Yampi Ecommerce</h1>
 <p align="center">O projeto desenvolvido para este desafio é um site de uma empresa de vendas online.
-A aplicação consiste em uma home page, tela de projeto por categoria, tela de produto e o carrinho.
+A aplicação consiste em uma home page, tela de produto por categoria, tela de produto e o carrinho.
 Para inicializar o projeto criei uma proposta de tela no figma abordando alguns conceitos de usabilidade deixando a aplicação fácil de se navegar. 
 Acesso no link abaixo:</p>
 <h1 align="center">
@@ -20,9 +20,7 @@ Acesso no link abaixo:</p>
 </h1>
 
 ### Descrição do projeto
-<p>
 Finalizado o processo de criação no figma comecei a desenvolver o front end. A aplicação se inicia com um loading para fazer as requisições a [FakeStoreAPI](https://fakestoreapi.com/docs) para consultar os produtos, as categorias e o carrinho. Após as respostas, se inicia a navegação do usuário pela aplicação. A home page contem um banner inicial, listagem das categorias, um mini tutorial de como comprar e a listagem de todos os produtos. Na página de cada categoria os produtos podem ser ordenados por nome, preço e avaliação. Ao clicar em qualquer card de produtos, o usuário é redirecionado para a tela de produtos podendo inserir a quantidade e adicionar ao carrinho. Para uma busca rápida de produtos, no header da página, o input de pesquisa filtra por nome e descrição dos produtos.
-</p>
 
 ### Stack
 
