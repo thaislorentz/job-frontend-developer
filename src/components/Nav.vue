@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       showCategories: true,
-      windowWidth: 0
+      windowWidth: window.innerWidth
     };
   },
   computed: {
@@ -37,6 +37,18 @@ export default {
   },
   watch: {
     windowWidth() {
+      this.resizeNav()
+    }
+  },
+  methods: {
+    click(item) {
+      if (this.windowWidth <= 850) {
+        this.showCategories = false
+      }
+      this.$router.push(`/category/${item}`).catch(() => {})
+    },
+    resizeNav() {
+      console.log(this.windowWidth)
       if (this.windowWidth >= 850) {
         this.showCategories = true;
       } else {
@@ -44,20 +56,11 @@ export default {
       }
     }
   },
-  methods: {
-    click(item) {
-      this.showCategories = false
-      this.$router.push(`/category/${item}`).catch(() => {})
-    }
-  },
   async created() {
-    window.addEventListener(
-      "resize",
-      e => (this.windowWidth = e.target.innerWidth)
-    );
-    if(this.windowWidth === 0 && this.showCategories) {
-      this.showCategories = false
-    }
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+     this.resizeNav()
   }
 };
 </script>
