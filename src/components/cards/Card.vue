@@ -67,7 +67,7 @@ export default {
     font-size: 10px;
     font-weight: bold;
     min-width: 70px;
-    color: #725bc2;
+    color: $predominant;
     text-transform: capitalize;
   }
 

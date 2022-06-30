@@ -119,7 +119,7 @@ export default {
 
   &-title {
     text-transform: capitalize;
-    color: #725bc2;
+    color: $predominant;
     font-weight: bold;
   }
 }
@@ -134,7 +134,7 @@ export default {
   &-title {
     z-index: 1;
     font-size: 28px;
-    color: #725bc2;
+    color: $predominant;
     margin-bottom: 20px;
   }
   &-grid {

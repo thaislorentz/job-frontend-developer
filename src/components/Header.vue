@@ -22,7 +22,6 @@
     </div>
     <div class="header-input">
       <InputText
-        type="search"
         v-model="search"
         placeholder="O que você está procurando?"
       />
@@ -126,7 +125,7 @@ export default {
   }
 
   &-icon {
-    color: #725bc2;
+    color: $predominant;
     font-size: 25px;
     cursor: pointer;
   }
@@ -143,10 +142,11 @@ export default {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 700px) {
   .header {
     &-input {
       display: flex;
+      background: red;
       margin: 0 30px 30px 30px;
     }
     &-search {

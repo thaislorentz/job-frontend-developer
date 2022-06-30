@@ -95,7 +95,6 @@ export default {
         if (product && value > 0) product.quantity = value;
       } else {
         product = this.cart.products.findIndex((p) => p.productId === id);
-        console.log(product);
         if (product !== -1) {
           this.cart.products.splice(product, 1);
           this.$toast.success("Produto retirado do carrinho!");
@@ -107,7 +106,6 @@ export default {
         date: d.toISOString(),
         products: this.cart.products,
       };
-      console.log(payload);
       await service.changeCartById(2, payload);
       this.$store.commit("set_cart", payload);
     },

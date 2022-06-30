@@ -138,7 +138,6 @@ export default {
   },
   mounted() {
     this.getProductByURL();
-    console.log(this.getProducts, "produ");
   },
 };
 </script>

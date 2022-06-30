@@ -77,7 +77,6 @@ export default {
       getProductsByCategory: "getProductsByCategory"
     }),
     order(type) {
-      console.log(type)
       if (type === "title") {
         this.products.sort(function(a, b) {
           if (a.title > b.title) {

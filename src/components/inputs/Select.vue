@@ -35,6 +35,7 @@ export default {
   border: 1px solid $secondary;
   position: relative;
   cursor: pointer;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   &-label {
       cursor: pointer;
     pointer-events: none;

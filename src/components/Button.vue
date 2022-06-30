@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     click(evt) {
-      console.log(this.finish)
       if (this.finish) {
         this.classButton = 'btn-progress'
         setTimeout(() => {

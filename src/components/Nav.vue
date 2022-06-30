@@ -61,7 +61,7 @@ export default {
 
 .nav {
   width: 100%;
-  background: #725bc2;
+  background: $predominant;
 
   &-bars {
     display: none;

@@ -28,7 +28,7 @@ export default {
     background: $secondary;
   }
   &-title {
-    color: #725bc2;
+    color: $predominant;
     padding: 30px;
     font-weight: bold;
     text-transform: capitalize;

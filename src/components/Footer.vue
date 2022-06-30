@@ -42,7 +42,7 @@ export default {
 
 .footer {
   background: $secondary;
-  border-top: solid #725bc2 2px;
+  border-top: solid $predominant 2px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -51,7 +51,7 @@ export default {
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    color: #725bc2;
+    color: $predominant;
     &-icon {
       margin-left: 10px;
     }

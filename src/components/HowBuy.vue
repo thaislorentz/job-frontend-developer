@@ -63,7 +63,7 @@ export default {
   margin: 60px 0;
 
   &-title {
-    color: #725bc2;
+    color: $predominant;
     font-size: 30px;
     font-weight: bold;
   }
@@ -104,7 +104,7 @@ export default {
       }
 
       &-number {
-        color: #725bc2;
+        color: $predominant;
         font-size: 30px;
         font-weight: bold;
       }
@@ -113,7 +113,7 @@ export default {
         flex-direction: column;
         margin-left: 5px;
         &-title {
-          color: #725bc2;
+          color: $predominant;
           font-size: 16px;
           font-weight: bold;
         }
@@ -124,7 +124,7 @@ export default {
       }
       &-final {
         margin-left: 5px;
-        color: #725bc2;
+        color: $predominant;
         font-weight: bold;
         font-size: 20px;
       }
