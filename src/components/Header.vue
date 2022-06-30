@@ -117,6 +117,7 @@ export default {
 
     &-image {
       cursor: pointer;
+      width: 150px;
     }
 
     &-input {

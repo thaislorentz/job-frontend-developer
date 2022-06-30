@@ -9,9 +9,7 @@
         class="nav-elements-item"
         v-for="item in category"
         :key="item"
-        @click="
-          () => $router.push(`/category/${item}`).catch(() => {})
-        "
+        @click="click(item)"
       >
         {{ item }}
       </li>
@@ -46,12 +44,20 @@ export default {
       }
     }
   },
-  methods: {},
+  methods: {
+    click(item) {
+      this.showCategories = false
+      this.$router.push(`/category/${item}`).catch(() => {})
+    }
+  },
   async created() {
     window.addEventListener(
       "resize",
       e => (this.windowWidth = e.target.innerWidth)
     );
+    if(this.windowWidth === 0 && this.showCategories) {
+      this.showCategories = false
+    }
   }
 };
 </script>
