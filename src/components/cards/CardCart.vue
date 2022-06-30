@@ -1,6 +1,6 @@
 <template>
-  <div class="cartcard">
-    <div class="cartcard-container">
+  <div :class="search ? 'cartcard search' : 'cartcard'" >
+    <div class="cartcard-container" @click="() => $router.push(`/product/${cart.id}`).catch(()=>{})">
       <img class="cartcard-image" :src="cart.image" :alt="cart.title" />
       <div class="cartcard-information">
         <h3
@@ -18,7 +18,7 @@
         </p>
       </div>
     </div>
-    <div class="cartcard-setQuantity">
+    <div class="cartcard-setQuantity" v-if="!search">
       <QuantityProducts
         @incrementEvent="incrementEvent"
         @decrementEvent="decrementEvent"
@@ -36,6 +36,16 @@
         }}
       </p>
     </div>
+    <div class="cartcard-price" v-else>
+       <p class="cartcard-setQuantity-price">
+        {{
+          (cart.price).toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })
+        }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -46,6 +56,9 @@ export default {
   name: "cartcard",
   props: {
     cart: Object,
+    search: {
+      default: false
+    }
   },
   components: {
     QuantityProducts,
@@ -58,14 +71,18 @@ export default {
     decrementEvent() {
       this.cart.quantity -= 1;
       this.$emit('setQuantity', this.cart.quantity, this.cart.id)
-    },
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/_colors.scss";
-
+.search {
+  background: $background !important;
+  width: 100% !important;
+  margin: 10px 0 !important;
+}
 .cartcard {
   background: $white;
   border: 1px solid $secondary;
@@ -76,6 +93,7 @@ export default {
   margin: 10px;
 
   &-container {
+    cursor: pointer;
     display: flex;
     padding: 20px;
     border-bottom: 1px solid $secondary;
@@ -85,6 +103,13 @@ export default {
     width: 70px;
     height: 70px;
     object-fit: contain;
+  }
+  &-price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
   }
   &-setQuantity {
     display: flex;
@@ -133,6 +158,15 @@ export default {
         font-size: 22px;
       }
     }
+  }
+}
+@media screen and (max-width: 700px) {
+  .cartcard {
+   &-information {
+    &-title {
+      font-size: 16px;
+    }
+  }
   }
 }
 </style>
